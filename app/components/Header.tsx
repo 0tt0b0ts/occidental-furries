@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header
@@ -28,11 +30,18 @@ export default function Header() {
           </svg>
         </button>
         {/* Messenger */}
-        <button aria-label="Messages" className="flex items-center">
+        <Link href="/messages" aria-label="Messages" className="flex items-center relative">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-        </button>
+          {/* Unread badge */}
+          <span
+            className="absolute rounded-full flex items-center justify-center text-white font-bold"
+            style={{ background: "#ff6a00", width: 14, height: 14, fontSize: 9, top: -4, right: -4 }}
+          >
+            1
+          </span>
+        </Link>
       </div>
     </header>
   );
